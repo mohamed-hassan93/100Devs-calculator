@@ -1,0 +1,91 @@
+/* Box Model Hack */
+* {
+     box-sizing: border-box;
+}
+
+/* Clear fix hack */
+.clearfix:after {
+     content: ".";
+     display: block;
+     clear: both;
+     visibility: hidden;
+     line-height: 0;
+     height: 0;
+}
+
+.clear {
+	clear: both;
+}
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+
+.headers {
+
+     font-family:'Pokemon GB';
+     text-align: center;
+}
+
+h1{
+     font-size: 18px;
+}
+
+h2{
+     font-size: 16px;
+}
+
+.calculatorBody {
+     width: 45%;
+     height: 100%;
+     background-color: black;
+     margin: 0% auto
+}
+
+.functionalSpace{
+     background-color: black;
+     height: 33%;
+     width: 100%
+}
+
+.lightGrey{
+     background-color: lightgray;
+}
+
+.lightGrey:hover{
+     background-color: rgb(231, 229, 229);
+}
+
+.grey{
+     background-color: grey;
+}
+
+.grey:hover{
+     background-color: rgb(158, 158, 158);
+}
+
+.orange{
+     background-color: orange;
+}
+
+.orange:hover{
+     background-color: rgb(250, 180, 50);
+}
+
+
+
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+header {
+
+}
+
+footer {
+
+}
+
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
