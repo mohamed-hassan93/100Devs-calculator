@@ -36,41 +36,89 @@ h2{
 }
 
 .calculatorBody {
-     width: 45%;
-     height: 100%;
+     width: 300px;
+     height: 500px;
      background-color: black;
      margin: 0% auto;
      display: flex;
+     flex-direction: column;
+     border: black 5px solid;
 }
 
 .functionalSpace{
      background-color: black;
-     height: 33%;
-     width: 100%
+     height: 25%;
+     width: 100%;
+}
+
+.functionalSpace:hover{
+     background-color: rgb(133, 82, 82);
+}
+
+.buttons{
+     width: 100%;
+     height: 75%;
+     display: flex;
+     flex-wrap: wrap;
+     align-self: end;
+     justify-content: space-between;
+     align-content: space-between;
+}
+
+.button{
+     width: 24%;
+     height: 19%;
+     text-align: center;
+     border-radius: 50%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     font-family: Helvetica, Arial, sans-serif;
+     font-size: larger;
+
+}
+
+.largeButton{
+     width: 50%;
+     text-align: center;
+     border-radius: 20% / 50%;
+     padding: auto auto;
+     display: flex;
+     justify-content: start;
+     align-items: center;
+     padding-left: 35px;
+     font-family: Helvetica, Arial, sans-serif;
+     font-size: larger;
 }
 
 .lightGrey{
      background-color: lightgray;
+     cursor: pointer;
 }
 
 .lightGrey:hover{
      background-color: rgb(231, 229, 229);
+     cursor: pointer;
 }
 
 .grey{
      background-color: grey;
+     color: white;
 }
 
 .grey:hover{
      background-color: rgb(158, 158, 158);
+     cursor: pointer;
 }
 
 .orange{
      background-color: orange;
+     color: white
 }
 
 .orange:hover{
      background-color: rgb(250, 180, 50);
+     cursor: pointer;
 }
 
 
