@@ -5,14 +5,11 @@ const calculator = {
   operator: null,
 };
 
-
-
 function updateDisplay(){
   const displayScreen = document.querySelector('.functionalSpace');
 
   displayScreen.innerHTML = calculator.displayValue
 }
-
 updateDisplay()
 
-
+test for github
