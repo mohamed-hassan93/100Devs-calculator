@@ -8,7 +8,12 @@ const calculator = {
 function updateDisplay(){
   const displayScreen = document.querySelector('.functionalSpace');
 
-  displayScreen.innerHTML = calculator.displayValue
+  if(calculator.displayValue.length > 9){
+    displayScreen.innerHTML = 'ERROR'
+  }else{
+    displayScreen.innerHTML = calculator.displayValue
+  }
+  
 }
 updateDisplay();
 
@@ -26,6 +31,12 @@ function inputDigits (digit){
 }
 
 function inputDecimal(dot){
+  
+  if(calculator.waitingForSecondOperand === true){
+    calculator.displayValue = '0.';
+    calculator.waitingForSecondOperand = false
+  }
+  
   if(!calculator.displayValue.includes(dot)){
     calculator.displayValue += dot;
   }
@@ -41,6 +52,14 @@ function calculate(firstOperand, secondOperand, operator){
     return firstOperand * secondOperand
   }else if (operator === '÷'){
     return firstOperand / secondOperand
+  }else if (operator === '+/-'){
+    return firstOperand * (-1);
+    waitingForSecondOperand = false;
+    updateDisplay()
+  }else if (operator === '%'){
+    return firstOperand / 100;
+    waitingForSecondOperand = false;
+    updateDisplay()
   }else{
     return
   }
@@ -59,7 +78,7 @@ function operatorRun(nextOperator){
   }else if(operator){
     const result = calculate(firstOperand, inputValue, operator);
 
-    calculator.displayValue = String(result);
+    calculator.displayValue = `${parseFloat(result.toFixed(9))}`;
     calculator.firstOperand = result;
   }
 
@@ -68,6 +87,14 @@ function operatorRun(nextOperator){
   console.log(calculator)
 }
 
+
+function calculatorReset(){
+  calculator.displayValue = '0';
+  calculator.firstOperand = null;
+  calculator.waitingForSecondOperand = false;
+  calculator.operator = null;
+  console.log(calculator)
+}
 
 const keys = document.querySelector('.buttons');
 keys.addEventListener('click', (event) => {
@@ -85,10 +112,16 @@ keys.addEventListener('click', (event) => {
     return;
   } else if(target.classList.contains('allClear')){
     console.log('clear', target.innerHTML);
+    calculatorReset();
+    updateDisplay();
     return;
   } else if(target.classList.contains('decimal')){
     console.log('decimal', target.innerHTML);
     inputDecimal(target.innerHTML);
+    updateDisplay();
+    return;
+  } else if(target.classList.contains('equals')){
+    console.log('equals', target.innerHTML);
     updateDisplay();
     return;
   } else {
